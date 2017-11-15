@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage  Title="Renderers - Effects"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinAdvanced.Pages.RenderersEffectsPage"
+    xmlns:controls="clr-namespace:XamarinAdvanced.Controls">
+	<ContentPage.Content>
+        <StackLayout>
+            <Label Text="Effect" />
+            <Label x:Name="_effectLabel" Text="Shadow Effect" />
+            <Label Text="Renderer" />
+            <controls:ExtendedEntry Margin="10" BorderColor="Teal" BorderWidth="2" BorderRadius="5" />
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>

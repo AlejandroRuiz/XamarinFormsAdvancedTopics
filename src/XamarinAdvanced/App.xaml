@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamarinAdvanced.App">
+	<Application.Resources>
+		<!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <Color x:Key="LightTextColor">#000000</Color>
+            <Color x:Key="LightBackgroundColor">#fffff</Color>
+            <Color x:Key="LightBackgroundButtonColor">#d2d5db</Color>
+            
+            <Color x:Key="DarkTextColor">#ffffff</Color>
+            <Color x:Key="DarkBackgroundColor">#000000</Color>
+            <Color x:Key="DarkBackgroundButtonColor">#0badbc</Color>
+
+            <Color x:Key="TextColor">#000000</Color>
+            <Color x:Key="BackgroundColor">#fffff</Color>
+            <Color x:Key="BackgroundButtonColor">#d2d5db</Color>
+
+            <Style x:Key="SystemButton" TargetType="Button">
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundButtonColor}" />
+            </Style>
+            <Style x:Key="SystemContentPage" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
+            </Style>
+            <Style x:Key="SystemLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            </Style>
+        </ResourceDictionary>
+	</Application.Resources>
+</Application>

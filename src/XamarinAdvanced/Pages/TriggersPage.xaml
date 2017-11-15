@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="{Binding Title}"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinAdvanced.Pages.TriggersPage"
+    xmlns:vm="clr-namespace:XamarinAdvanced.ViewModel"
+    xmlns:local="clr-namespace:XamarinAdvanced.Converters">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:MultiTriggerConverter x:Key="containsDataConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <vm:TriggersViewModel />
+    </ContentPage.BindingContext>
+	<ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Property Trigger" />
+                <Entry Margin="20,0" HeightRequest="40" Placeholder="enter name">
+                    <Entry.Triggers>
+                        <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                            <Setter Property="BackgroundColor" Value="Teal" />
+                            <Setter Property="TextColor" Value="White" />
+                        </Trigger>
+                    </Entry.Triggers>
+                </Entry>
+
+                <Label Text="Data Trigger" />
+                <Entry Margin="20,0" HeightRequest="40" Text="{Binding Name}" Placeholder="Name" />
+                <Button Text="Click Me">
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button" Binding="{Binding NameLength}" Value="0">
+                            <Setter Property="IsEnabled" Value="False" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+
+                <Label Text="Multi Triggers" />
+                <Entry Margin="20,0" HeightRequest="40" Text="{Binding UserName}" Placeholder="UserName" />
+                <Entry Margin="20,0" IsPassword="true" HeightRequest="40" Text="{Binding Password}" Placeholder="Password" />
+                <Button IsEnabled="false" Text="Click Me">
+                    <Button.Triggers>
+                        <MultiTrigger TargetType="Button">
+                            <MultiTrigger.Conditions>
+                                <BindingCondition Binding="{Binding UserName, Converter={StaticResource containsDataConverter}}" Value="true" />
+                                <BindingCondition Binding="{Binding Password, Converter={StaticResource containsDataConverter}}" Value="true" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="IsEnabled" Value="True" />
+                        </MultiTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackLayout>
+        </ScrollView>
+	</ContentPage.Content>
+</ContentPage>

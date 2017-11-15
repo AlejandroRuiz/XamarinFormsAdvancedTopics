@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="{Binding Title}"
+    Style="{DynamicResource SystemContentPage}"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinAdvanced.Pages.ThemesPage"
+    xmlns:vm="clr-namespace:XamarinAdvanced.ViewModel">
+    <ContentPage.BindingContext>
+        <vm:ThemesViewModel />
+    </ContentPage.BindingContext>
+	<ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Style="{DynamicResource SystemLabel}" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mauris leo, auctor eget hendrerit eget, commodo feugiat urna. Nam vulputate dapibus quam, id gravida nunc vehicula eu. Mauris viverra est libero, et aliquet mi pretium sit amet. Nullam nec lectus justo. Integer faucibus elit a pretium ornare. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum pellentesque ullamcorper magna, in consectetur sem luctus sit amet." />
+            <Button Style="{DynamicResource SystemButton}" Text="Click Me" />
+            <StackLayout Orientation="Horizontal">
+                <Label Style="{DynamicResource SystemLabel}" Text="Dark Theme?" />
+                <Switch IsToggled="{Binding IsDarkThemeSelected}" />
+            </StackLayout>
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>

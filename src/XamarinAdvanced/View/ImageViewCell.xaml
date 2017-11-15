@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell Height="350"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinAdvanced.View.ImageViewCell">
+    <Grid>
+        <Image Aspect="AspectFill" Source="{Binding SourceUrl}" />
+        <Grid VerticalOptions="End">
+            <BoxView Color="#80000000" />
+            <Grid Padding="5,10" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="22" Text="{Binding Text}" TextColor="White" LineBreakMode="TailTruncation" />
+                <Label Grid.Row="1" FontSize="12" Text="{Binding Details}" TextColor="White" />
+            </Grid>
+        </Grid>
+    </Grid>
+</ViewCell>

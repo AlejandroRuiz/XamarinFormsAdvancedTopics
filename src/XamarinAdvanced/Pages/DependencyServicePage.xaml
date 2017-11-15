@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="{Binding Title}"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinAdvanced.Pages.DependencyServicePage"
+    xmlns:vm="clr-namespace:XamarinAdvanced.ViewModel">
+    <ContentPage.BindingContext>
+        <vm:DependencyServiceViewModel />
+    </ContentPage.BindingContext>
+	<ContentPage.Content>
+        <Image Source="backdarth.jpg" Aspect="AspectFill">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding OnClickedCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+	</ContentPage.Content>
+</ContentPage>

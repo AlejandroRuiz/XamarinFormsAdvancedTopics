@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="{Binding Title}"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinAdvanced.Pages.TemplateSelectorPage"
+    xmlns:views="clr-namespace:XamarinAdvanced.View"
+    xmlns:vm="clr-namespace:XamarinAdvanced.ViewModel">
+    <ContentPage.BindingContext>
+        <vm:TemplateSelectorViewModel />
+    </ContentPage.BindingContext>
+	<ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="adTemplate">
+                <views:AdViewCell />
+            </DataTemplate>
+            <DataTemplate x:Key="imageTemplate">
+                <views:ImageViewCell />
+            </DataTemplate>
+            <views:CellTemplateSelector x:Key="personDataTemplateSelector" ImageTemplate="{StaticResource imageTemplate}" AdTemplate="{StaticResource adTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ListView CachingStrategy="RecycleElement" ItemTapped="Handle_ItemTapped" ItemsSource="{Binding Cards}" SeparatorVisibility="None" HasUnevenRows="true" ItemTemplate="{StaticResource personDataTemplateSelector}" />
+</ContentPage>

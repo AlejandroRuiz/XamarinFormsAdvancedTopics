@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    Title="{Binding Title}"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinAdvanced.Pages.BehaviorsPage"
+    xmlns:local="clr-namespace:XamarinAdvanced.Behaviors"
+    xmlns:vm="clr-namespace:XamarinAdvanced.ViewModel">
+    <ContentPage.BindingContext>
+        <vm:BehaviorsViewModel />
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <Label Text="Attached Behavior" />
+        <Entry Margin="20" Keyboard="Email" HeightRequest="50" Placeholder="Email" local:EmailValidationBehavior.AttachBehavior="true" />
+        <Label Text="Forms Behavior" />
+        <ListView ItemsSource="{Binding Items}">
+            <ListView.Behaviors>
+                <local:ListViewItemTappedBehavior Command="{Binding ItemTappedCommand}" />
+            </ListView.Behaviors>
+        </ListView>
+    </StackLayout>
+</ContentPage>
